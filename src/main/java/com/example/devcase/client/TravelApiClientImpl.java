@@ -79,6 +79,4 @@ public class TravelApiClientImpl implements TravelApiClient {
 		return restTemplate.getForObject(travelApiUrl + "/airports/{airportCode}", Airport.class, airportCode);
 	}
 
-	// private Completable<T>
-
 }
