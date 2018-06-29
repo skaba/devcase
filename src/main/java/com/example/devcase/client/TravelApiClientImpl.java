@@ -68,13 +68,13 @@ public class TravelApiClientImpl implements TravelApiClient {
 		response.getWriter().append(responseEntity.getBody());
 	}
 
-	public Fare retrieveFare(String origin, String destination, Currency currency) {
+	private Fare retrieveFare(String origin, String destination, Currency currency) {
 		log.info("retrieveFare {},{},{}", origin, destination, currency);
 		return restTemplate.getForObject(travelApiUrl + "/fares/{origin}/{destination}?currency={currency}", Fare.class,
 				origin, destination, currency);
 	}
 
-	public Airport retrieveAirport(String airportCode) {
+	private Airport retrieveAirport(String airportCode) {
 		log.info("retrieveAirport {}", airportCode);
 		return restTemplate.getForObject(travelApiUrl + "/airports/{airportCode}", Airport.class, airportCode);
 	}
