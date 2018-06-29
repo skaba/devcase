@@ -70,12 +70,6 @@ public class TravelApiClientImpl implements TravelApiClient {
 
 	public Fare retrieveFare(String origin, String destination, Currency currency) {
 		log.info("retrieveFare {},{},{}", origin, destination, currency);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return restTemplate.getForObject(travelApiUrl + "/fares/{origin}/{destination}?currency={currency}", Fare.class,
 				origin, destination, currency);
 	}
